@@ -1,0 +1,396 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+:root{
+--bg1:#0f0704;
+--bg2:#2a1a10;
+--card:rgba(36,24,15,.85);
+--text:#ffffff;
+--gold:#c89b3c;
+--shadow:rgba(200,155,60,.25);
+}
+
+/* 🌙 الوضع الفاتح */
+body.light{
+--bg1:#f5e6d3;
+--bg2:#e7d4bf;
+--card:rgba(255,255,255,.9);
+--text:#1a1a1a;
+--gold:#9c6b16;
+--shadow:rgba(0,0,0,.15);
+}
+
+/* الخلفية الأساسية */
+body{
+min-height:100vh;
+overflow-x:hidden;
+color:var(--text);
+background:linear-gradient(135deg,var(--bg1),var(--bg2));
+position:relative;
+}
+
+body{
+transition: background 0.6s ease, color 0.6s ease;
+}
+
+.card, .stat-card, .social-btn{
+transition: background 0.6s ease, color 0.6s ease;
+}
+
+/* 🌞 تحسين أزرار الوضع النهاري */
+body.light .social-btn{
+background:rgba(255,255,255,.9);
+color:#111;
+border:1px solid rgba(0,0,0,.08);
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+body.light .social-btn i{
+color:#9c6b16;
+}
+
+/* أيقونات */
+body.light .social-btn i{
+color:#9c6b16;
+}
+
+/* hover خفيف بدل الألوان القوية */
+body.light .instagram:hover{
+background:rgba(225,48,108,.12);
+color:#111;
+}
+
+body.light .tiktok:hover{
+background:rgba(0,0,0,.08);
+color:#111;
+}
+
+body.light .youtube:hover{
+background:rgba(255,0,0,.12);
+color:#111;
+}
+
+body.light .telegram:hover{
+background:rgba(34,158,217,.12);
+color:#111;
+}
+
+body.light .snapchat:hover{
+background:rgba(255,252,0,.25);
+color:#111;
+}
+
+body.light .discord:hover{
+background:rgba(88,101,242,.12);
+color:#111;
+}
+
+body.light .email:hover{
+background:rgba(139,92,246,.12);
+color:#111;
+}
+
+.social-btn{
+transition: all 0.3s ease;
+}
+
+/* ✨ particles */
+.particles{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 30%, rgba(200,155,60,.15) 2px, transparent 3px),
+radial-gradient(circle at 70% 60%, rgba(255,200,120,.12) 2px, transparent 3px),
+radial-gradient(circle at 40% 80%, rgba(200,155,60,.10) 2px, transparent 3px);
+background-size:300px 300px;
+animation:moveParticles 15s linear infinite;
+pointer-events:none;
+opacity:.6;
+}
+
+@keyframes moveParticles{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120px);}
+}
+
+/* 💡 glow orbs */
+.glow-orbs{
+position:fixed;
+inset:0;
+pointer-events:none;
+}
+
+.glow-orbs::before,
+.glow-orbs::after{
+content:"";
+position:absolute;
+width:280px;
+height:280px;
+border-radius:50%;
+background:radial-gradient(circle, rgba(200,155,60,.25), transparent 70%);
+filter:blur(50px);
+animation:floatGlow 8s infinite ease-in-out;
+}
+
+.glow-orbs::before{
+top:10%;
+left:15%;
+}
+
+.glow-orbs::after{
+bottom:10%;
+right:15%;
+animation-delay:4s;
+}
+
+@keyframes floatGlow{
+0%{transform:translateY(0);}
+50%{transform:translateY(-40px);}
+100%{transform:translateY(0);}
+}
+
+/* 🌫️ fog */
+.fog{
+position:fixed;
+inset:0;
+background:radial-gradient(circle, rgba(255,255,255,.03), transparent 60%);
+filter:blur(25px);
+animation:fogMove 15s linear infinite;
+pointer-events:none;
+}
+
+@keyframes fogMove{
+0%{transform:translateX(0);}
+50%{transform:translateX(40px);}
+100%{transform:translateX(0);}
+}
+
+/* زر الوضع */
+.theme-btn{
+position:fixed;
+top:20px;
+right:20px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:var(--card);
+color:var(--gold);
+font-size:22px;
+cursor:pointer;
+box-shadow:0 0 20px var(--shadow);
+}
+
+/* container */
+.container{
+width:90%;
+max-width:700px;
+margin:auto;
+text-align:center;
+padding:60px 0;
+}
+
+/* اللوكو */
+.logo{
+width:180px;
+height:180px;
+margin:auto;
+border-radius:50%;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+background:radial-gradient(circle,#2a1a10,#0f0704);
+box-shadow:0 0 40px rgba(200,155,60,.2);
+animation:float 4s ease-in-out infinite;
+transform-style:preserve-3d;
+transition:0.4s ease;
+}
+
+/* الصورة */
+.profile-pic{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+transition:0.4s ease;
+filter:contrast(1.05) saturate(1.1);
+}
+
+/* 🌟 إطار متدرج دوّار (أقوى جزء) */
+.logo::before{
+content:"";
+position:absolute;
+inset:-6px;
+border-radius:50%;
+background:conic-gradient(
+from 0deg,
+#c89b3c,
+#ffdd88,
+#c89b3c,
+#8b5cf6,
+#c89b3c
+);
+animation:spin 5s linear infinite;
+z-index:-1;
+}
+
+/* ضوء داخلي */
+.logo::after{
+content:"";
+position:absolute;
+inset:10px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+}
+
+/* hover احترافي */
+.logo:hover{
+transform:scale(1.08) rotateY(8deg) rotateX(6deg);
+box-shadow:0 0 60px rgba(200,155,60,.35);
+}
+
+.logo:hover .profile-pic{
+transform:scale(1.1);
+filter:brightness(1.15) contrast(1.1);
+}
+
+/* ✨ نبض خفيف */
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+}
+
+/* 🔄 دوران الإطار */
+@keyframes spin{
+0%{transform:rotate(0);}
+100%{transform:rotate(360deg);}
+}
+
+/* النص */
+.title{font-size:42px;margin-top:25px;}
+.subtitle{opacity:.8;margin-top:10px;}
+
+/* الروابط */
+.socials{
+margin-top:40px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.social-btn{
+position:relative;
+overflow:hidden;
+padding:16px;
+border-radius:18px;
+text-decoration:none;
+color:white;
+background:var(--card);
+display:flex;
+justify-content:center;
+gap:10px;
+align-items:center;
+border:1px solid rgba(255,255,255,.08);
+transition:all .35s ease;
+transform:translateZ(0);
+box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+
+/* تأثير ضغط */
+.social-btn:active{
+transform:scale(0.96);
+}
+
+.social-btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+transform:skewX(-25deg);
+}
+
+.social-btn:hover::before{
+animation:shineMove .8s ease;
+}
+
+@keyframes shineMove{
+0%{left:-120%;}
+100%{left:120%;}
+}
+
+.social-btn:hover{
+transform:translateY(-6px) scale(1.04);
+box-shadow:0 10px 30px rgba(200,155,60,.25);
+}
+
+.instagram:hover{
+background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+}
+
+.tiktok:hover{
+background:linear-gradient(45deg,#000,#111);
+box-shadow:0 0 20px rgba(255,255,255,.1);
+}
+
+.youtube:hover{
+background:linear-gradient(45deg,#ff0000,#cc0000);
+}
+
+.telegram:hover{
+background:linear-gradient(45deg,#229ED9,#1b7fb3);
+}
+
+.snapchat:hover{
+background:linear-gradient(45deg,#FFFC00,#ffe600);
+color:#000;
+}
+
+.discord:hover{
+background:linear-gradient(45deg,#5865F2,#404eed);
+}
+
+.email:hover{
+background:linear-gradient(45deg,#8b5cf6,#6d28d9);
+}
+
+.disabled{opacity:.5;cursor:not-allowed;}
+
+/* stats */
+.stats{
+margin-top:40px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.stat-card{
+background:var(--card);
+padding:25px;
+border-radius:20px;
+}
+
+.stat-card h2{
+font-size:35px;
+color:var(--gold);
+}
+
+/* footer */
+footer{
+margin-top:40px;
+opacity:.7;
+}

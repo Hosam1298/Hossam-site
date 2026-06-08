@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hosam1298.github.io/Hossam-site/sitemap.xml

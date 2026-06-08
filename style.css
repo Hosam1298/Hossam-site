@@ -476,4 +476,14 @@ html{
 
 .card-btn:hover{
   transform: scale(1.05);
-                         }
+}
+
+footer{
+margin-top:50px;
+padding:20px;
+font-size:14px;
+letter-spacing:1px;
+opacity:.8;
+text-align:center;
+color:var(--gold);
+  }
